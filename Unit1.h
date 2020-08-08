@@ -22,6 +22,7 @@ __published:	// IDE-managed Components
 	TMenuItem *potencian1;
 	TMenuItem *mayorMenorn1;
 	TMenuItem *invertirn1;
+	TMenuItem *EST1;
 	void __fastcall factorialn1Click(TObject *Sender);
 	void __fastcall potencian1Click(TObject *Sender);
 	void __fastcall mayorMenorn1Click(TObject *Sender);

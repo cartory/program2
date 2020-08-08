@@ -48,5 +48,8 @@ object Form1: TForm1
     object MATRICES1: TMenuItem
       Caption = 'MATRICES'
     end
+    object EST1: TMenuItem
+      Caption = 'TEST'
+    end
   end
 end

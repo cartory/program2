@@ -3,10 +3,10 @@
 	<Transactions>
     <Transaction>2020/08/06 16:01:00.000.418,=C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>2020/08/06 16:01:00.000.078,=C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>2020/08/06 18:03:26.000.117,C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.cpp=D:\Embarcadero\program2\Unit1.cpp</Transaction>
-    <Transaction>2020/08/06 18:03:26.000.117,C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.h=D:\Embarcadero\program2\Unit1.h</Transaction>
-    <Transaction>2020/08/06 18:03:26.000.117,C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=D:\Embarcadero\program2\Unit1.dfm</Transaction>
-    <Transaction>2020/08/06 18:03:28.000.988,C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1PCH1.h=D:\Embarcadero\program2\Project1PCH1.h</Transaction>
-    <Transaction>2020/08/06 18:03:31.000.849,C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.cbproj=D:\Embarcadero\program2\Project1.cbproj</Transaction>
+    <Transaction>2020/08/06 18:03:26.000.117,D:\Embarcadero\program2\Unit1.dfm=C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/08/06 18:03:26.000.117,D:\Embarcadero\program2\Unit1.cpp=C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2020/08/06 18:03:26.000.117,D:\Embarcadero\program2\Unit1.h=C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.h</Transaction>
+    <Transaction>2020/08/06 18:03:28.000.988,D:\Embarcadero\program2\Project1PCH1.h=C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2020/08/06 18:03:31.000.849,D:\Embarcadero\program2\Project1.cbproj=C:\Users\USUARIO\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
   </Transactions>
 </BorlandProject>
