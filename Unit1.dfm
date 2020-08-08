@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 286
-  ClientWidth = 524
+  ClientHeight = 296
+  ClientWidth = 533
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,8 +15,8 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
-    Left = 488
-    Top = 248
+    Left = 496
+    Top = 256
     object ENTEROS1: TMenuItem
       Caption = 'ENTEROS'
       object factorialn1: TMenuItem
@@ -49,7 +49,7 @@ object Form1: TForm1
       Caption = 'MATRICES'
     end
     object EST1: TMenuItem
-      Caption = 'TEST'
+      Caption = 'TESTING'
     end
   end
 end
