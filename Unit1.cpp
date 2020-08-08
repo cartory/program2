@@ -116,4 +116,60 @@ void __fastcall TForm1::invertirn1Click(TObject *Sender) {
 	invertir(n);
 	ShowMessage(n);
 }
+
+// ---------------------------------------------------------------------------
+void moverMayorFinal(Cardinal &n) {
+	if (n > 9) {
+		byte d = n % 10;
+		n /= 10;
+		moverMayorFinal(n);
+		if (n % 10 > d) {
+			n = (n / 10) * 100 + d * 10 + n % 10;
+		}
+		else {
+			n = n * 10 + d;
+		}
+	}
+}
+
+byte digitoMayor(Cardinal n) {
+	byte d;
+	if (n<10) {
+		d = n;
+	}else {
+		d = digitoMayor(n/10);
+		if (n%10 > d) {
+			d = n%10;
+		}
+	}
+	return d;
+}
+
+void eliminarDigito(Cardinal &n, byte d, bool &elimino) 
+{
+	if (n > 0) {
+		byte p = n%10;
+		n /= 10;
+		eliminarDigito(n, d, elimino);
+		if (elimino) {
+			n = n *10 + p;
+		}else {
+			if (p == d) {
+				elimino = true;
+			}else {
+				n = n *10 + p;
+			}
+		}
+	}
+}
+
+void __fastcall TForm1::moverMayorFinal1Click(TObject * Sender) {
+	Cardinal n = StrToInt(InputBox("invertir", "nro", ""));
+	byte d = digitoMayor(n);
+	bool elimino = false;
+	eliminarDigito(n, d, elimino);
+	n = n*10 + d;
+//	moverMayorFinal(n);
+	ShowMessage(n);
+}
 // ---------------------------------------------------------------------------

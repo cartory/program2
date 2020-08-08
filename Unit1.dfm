@@ -50,6 +50,10 @@ object Form1: TForm1
     end
     object EST1: TMenuItem
       Caption = 'TESTING'
+      object moverMayorFinal1: TMenuItem
+        Caption = 'moverMayorFinal'
+        OnClick = moverMayorFinal1Click
+      end
     end
   end
 end

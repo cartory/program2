@@ -23,10 +23,12 @@ __published:	// IDE-managed Components
 	TMenuItem *mayorMenorn1;
 	TMenuItem *invertirn1;
 	TMenuItem *EST1;
+	TMenuItem *moverMayorFinal1;
 	void __fastcall factorialn1Click(TObject *Sender);
 	void __fastcall potencian1Click(TObject *Sender);
 	void __fastcall mayorMenorn1Click(TObject *Sender);
 	void __fastcall invertirn1Click(TObject *Sender);
+	void __fastcall moverMayorFinal1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
