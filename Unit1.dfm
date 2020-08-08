@@ -54,6 +54,18 @@ object Form1: TForm1
         Caption = 'moverMayorFinal'
         OnClick = moverMayorFinal1Click
       end
+      object sumaBinariaab1: TMenuItem
+        Caption = 'sumaBinaria(a,b)'
+        OnClick = sumaBinariaab1Click
+      end
+      object toBinn1: TMenuItem
+        Caption = 'DecimalABinario(n)'
+        OnClick = toBinn1Click
+      end
+      object ordenarn1: TMenuItem
+        Caption = 'ordenar(n)'
+        OnClick = ordenarn1Click
+      end
     end
   end
 end

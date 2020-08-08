@@ -1,0 +1,224 @@
+// ---------------------------------------------------------------------------
+
+#include <vcl.h>
+#include <cmath>
+
+#pragma hdrstop
+
+#include "Unit1.h"
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+
+// ---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
+}
+
+Cardinal factorial(byte n) {
+	Cardinal f;
+	if (n == 0) {
+		f = 1;
+	}
+	else {
+		f = n * factorial(n - 1);
+	}
+	return f;
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::factorialn1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("Factorial", "nro", ""));
+	Cardinal f = factorial(n);
+	ShowMessage(f);
+}
+
+// ---------------------------------------------------------------------------
+
+/*
+ 0 < n < 10
+ auxPotencia(2) => 22
+ auxPotencia(3) => 333
+ auxPotencia(4) => 4444
+ */
+Cardinal auxPotencia(byte n) {
+	return (int)(pow(10, n) - 1) / 9 * n;
+}
+
+Cardinal potencia(Cardinal n) {
+	Cardinal p;
+	if (n < 10) {
+		p = auxPotencia(n);
+	}
+	else {
+		p = potencia(n / 10);
+		Cardinal d = auxPotencia(n % 10);
+		p = p * (int)pow(10, n % 10) + d;
+	}
+	return p;
+}
+
+void __fastcall TForm1::potencian1Click(TObject *Sender) {
+	Cardinal n = StrToInt(InputBox("Potencia", "nro", ""));
+	Cardinal f = potencia(n);
+	ShowMessage(f);
+}
+
+byte digitoMayorMenor(Cardinal n) {
+	byte m;
+	if (n < 10) {
+		m = n * 11;
+	}
+	else {
+		m = digitoMayorMenor(n / 10);
+		byte d = n % 10;
+		if (d < m % 10) {
+			m = (m / 10) * 10 + d;
+		}
+		if (d > m / 10) {
+			m = d * 10 + m % 10;
+		}
+	}
+	return m;
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::mayorMenorn1Click(TObject *Sender) {
+	Cardinal n = StrToInt(InputBox("DigitoMayorMenor", "nro", ""));
+	byte m = digitoMayorMenor(n);
+	ShowMessage(m);
+}
+
+// ---------------------------------------------------------------------------
+
+byte cantidadDigitos(Cardinal n) {
+	byte c;
+	if (n == 0) {
+		c = 1;
+	}
+	else {
+		c = (int)log10(10 * n);
+	}
+	return c;
+}
+
+void invertir(Cardinal &n) {
+	if (n > 9) {
+		Cardinal d = n % 10;
+		n /= 10;
+		invertir(n);
+		n = d * (int)pow(10, cantidadDigitos(n)) + n;
+	}
+}
+
+void __fastcall TForm1::invertirn1Click(TObject *Sender) {
+	Cardinal n = StrToInt(InputBox("invertir", "nro", ""));
+	invertir(n);
+	ShowMessage(n);
+}
+
+// ---------------------------------------------------------------------------
+void moverMayorFinal(Cardinal &n) {
+	if (n > 9) {
+		byte d = n % 10;
+		n /= 10;
+		moverMayorFinal(n);
+		if (n % 10 > d) {
+			n = (n / 10) * 100 + d * 10 + n % 10;
+		}
+		else {
+			n = n * 10 + d;
+		}
+	}
+}
+
+byte digitoMayor(Cardinal n) {
+	byte d;
+	if (n < 10) {
+		d = n;
+	}
+	else {
+		d = digitoMayor(n / 10);
+		if (n % 10 > d) {
+			d = n % 10;
+		}
+	}
+	return d;
+}
+
+void eliminarDigito(Cardinal &n, byte d, bool &elimino) {
+	if (n > 0) {
+		byte p = n % 10;
+		n /= 10;
+		eliminarDigito(n, d, elimino);
+		if (elimino) {
+			n = n * 10 + p;
+		}
+		else {
+			if (p == d) {
+				elimino = true;
+			}
+			else {
+				n = n * 10 + p;
+			}
+		}
+	}
+}
+
+byte sumaDigitosBinarios(byte a, byte b) {
+	return (a + b) / 2 * 10 + (a + b) % 2;
+}
+
+Cardinal sumaBinaria(Cardinal a, Cardinal b, byte c = 0) {
+	Cardinal s;
+	byte d = sumaDigitosBinarios(a % 10, b % 10);
+	d = (d / 10) * 10 + sumaDigitosBinarios(d % 10, c);
+	if (a < 2 && b < 2) {
+		s = d;
+	}
+	else {
+		s = sumaBinaria(a / 10, b / 10, d / 10);
+		s = s * 10 + d % 10;
+	}
+	return s;
+}
+
+void __fastcall TForm1::moverMayorFinal1Click(TObject * Sender) {
+	Cardinal n = StrToInt(InputBox("invertir", "nro", ""));
+	byte d = digitoMayor(n);
+	bool elimino = false;
+	eliminarDigito(n, d, elimino);
+	n = n * 10 + d;
+	// moverMayorFinal(n);
+	ShowMessage(n);
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::sumaBinariaab1Click(TObject *Sender) {
+	Cardinal a = StrToInt(InputBox("Suma Binario", "A :", ""));
+	Cardinal b = StrToInt(InputBox("Suma Binario", "B :", ""));
+	Cardinal s = sumaBinaria(a, b);
+	ShowMessage(s);
+}
+// ---------------------------------------------------------------------------
+
+String w = "0123456789ABCDEF";
+
+String DecimalBaseK(Cardinal n, byte k) {
+	String s;
+	if (n < k) {
+		s = String(w[n + 1]);
+	}
+	else {
+		s = DecimalBaseK(n / k, k) + w[n%k + 1];
+	}
+	return s;
+}
+
+void __fastcall TForm1::toBinn1Click(TObject *Sender) {
+	Cardinal n = StrToInt(InputBox("Decimal", "nro :", ""));
+	byte k = StrToInt(InputBox("Base", "nro :", ""));
+	String s = DecimalBaseK(n, k);
+	ShowMessage(s);
+}
+// ---------------------------------------------------------------------------
