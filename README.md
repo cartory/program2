@@ -18,7 +18,7 @@ repositorio en sus computadoras y compilarlo al 100%
 
 Una vez que tengas GIT y C++ Builder
 
-En en el directorio que prefieras, abra la terminal y escriba el siguiente comando
+En el directorio que prefieras, abra la terminal y escriba el siguiente comando
 
 ```
 git clone https://github.com/cartory/program2.git
