@@ -4,19 +4,19 @@ Repositorio con los ejercicios resueltos de programación
 ## Youtube channel
 * **Pedro cartory** - *programación 2* - [cartory](https://www.youtube.com/channel/UCQu3fZWiFFybOE4T9AJXC7A?view_as=subscriber)    
 
-## Getting Started
+## Empezando
 
 Las siguientes instrucciones serán sobre como clonar el 
 repositorio en sus computadoras y compilarlo al 100%
-### Prerequisites
+### Requisitos
 -  ##### C++ Builder Community >= 10.3 
     -   https://www.embarcadero.com/products/cbuilder/starter/free-download
 -   ##### Tener instalado GIT
     -   https://git-scm.com/downloads
 
-### Download the repo
+### Descargar el repositorio
 
-Una vez que tengas GIT y C++ Builder
+Una vez que tenga GIT y C++ Builder
 
 En el directorio que prefieras, abra la terminal y escriba el siguiente comando
 
@@ -29,16 +29,16 @@ Luego abra el proyecto y deberia moscorrer perfectamente
 ![c++_image](https://cdn.discordapp.com/attachments/637038014203166773/742031032424988832/README.png)
 
 
-## Update the repo
+## Actualizar el repositorio
 
-Una vez clonado el repo, si es quisiera actualizarlo debe abrir una terminal en el directorio principal del proyecto y escribir el siguiente comando
+Una vez clonado el repo, si es que quisiera actualizarlo debe abrir una terminal en el directorio principal del proyecto y escribir el siguiente comando
 
 ```
 git pull origin master
 ```
 
 
-## Authors
+## Autor
 
 * **cartory@me** - *programación 2* - [cartory](https://github.com/cartory)
 
