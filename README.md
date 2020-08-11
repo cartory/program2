@@ -39,9 +39,10 @@ git pull origin master
 ```
 
 
-## Autor
+## Autores
 
-* **cartory@me** - *programación 2* - [cartory](https://github.com/cartory)
+* **cartory** - *programación 2* - [cartory](https://github.com/cartory)
+* **KarlaMeneses** - *Learning Something* - [KarlaMeneses](https://github.com/KarlaMeneses)
 
 ## License
 
