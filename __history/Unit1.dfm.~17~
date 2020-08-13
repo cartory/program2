@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 286
-  ClientWidth = 524
+  ClientHeight = 324
+  ClientWidth = 566
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,8 +15,8 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
-    Left = 488
-    Top = 248
+    Left = 528
+    Top = 288
     object ENTEROS1: TMenuItem
       Caption = 'ENTEROS'
       object factorialn1: TMenuItem
@@ -35,9 +35,41 @@ object Form1: TForm1
         Caption = 'invertir(&n)'
         OnClick = invertirn1Click
       end
+      object moverMayorFinal1: TMenuItem
+        Caption = 'moverMayorFinal'
+        OnClick = moverMayorFinal1Click
+      end
+      object sumaBinariaab1: TMenuItem
+        Caption = 'sumaBinaria(a,b)'
+        OnClick = sumaBinariaab1Click
+      end
+      object toBinn1: TMenuItem
+        Caption = 'DecimalABinario(n)'
+        OnClick = toBinn1Click
+      end
+      object ordenarn1: TMenuItem
+        Caption = 'ordenar(n)'
+        OnClick = ordenarn1Click
+      end
     end
     object CADENAS1: TMenuItem
       Caption = 'CADENAS'
+      object invertirn2: TMenuItem
+        Caption = 'invertir(x)'
+        OnClick = invertirn2Click
+      end
+      object cantidadPalabrasx1: TMenuItem
+        Caption = 'cantidadPalabras(x)'
+        OnClick = cantidadPalabrasx1Click
+      end
+      object eliminarVocalesx1: TMenuItem
+        Caption = 'eliminarVocales(&x)'
+        OnClick = eliminarVocalesx1Click
+      end
+      object palabraMasLargax1: TMenuItem
+        Caption = 'palabraMasLarga(x)'
+        OnClick = palabraMasLargax1Click
+      end
     end
     object SERIES1: TMenuItem
       Caption = 'SERIES'
@@ -47,9 +79,6 @@ object Form1: TForm1
     end
     object MATRICES1: TMenuItem
       Caption = 'MATRICES'
-    end
-    object EST1: TMenuItem
-      Caption = 'TEST'
     end
   end
 end

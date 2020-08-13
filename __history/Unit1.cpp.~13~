@@ -424,7 +424,6 @@ bool estaOrdenadoAsc(Cardinal n){
 	}else {
 		byte d = n%10;
 		n /= 10;
-//		h = estaOrdenadoAsc(n) && !(n%10 > d);
 		h = estaOrdenadoAsc(n);
 		if (n%10 > d) {
 			h = false;
@@ -440,7 +439,6 @@ bool estaOrdenadoDesc(Cardinal n){
 	}else {
 		byte d = n%10;
 		n /= 10;
-//        h = estaOrdenadoAsc(n) && !(n%10 > d);
 		h = estaOrdenadoDesc(n);
 		if (n%10 < d) {
 			h = false;
@@ -471,7 +469,7 @@ void __fastcall TForm1::estaOrdenadon1Click(TObject *Sender)
 		n = 1   => true
 
 	*/
-	Cardinal n = StrToInt(InputBox("EstaOrdenado", "cad :", ""));
+	Cardinal n = StrToInt(InputBox("Palabra+Larga", "cad :", ""));
 	bool ordenado = estaOrdenadoAsc(n) || estaOrdenadoDesc(n);
 	ShowMessage(ordenado?"true":"false");
 }
