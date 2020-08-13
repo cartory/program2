@@ -22,7 +22,6 @@ __published:	// IDE-managed Components
 	TMenuItem *potencian1;
 	TMenuItem *mayorMenorn1;
 	TMenuItem *invertirn1;
-	TMenuItem *EST1;
 	TMenuItem *moverMayorFinal1;
 	TMenuItem *sumaBinariaab1;
 	TMenuItem *toBinn1;

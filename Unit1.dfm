@@ -35,21 +35,6 @@ object Form1: TForm1
         Caption = 'invertir(&n)'
         OnClick = invertirn1Click
       end
-    end
-    object CADENAS1: TMenuItem
-      Caption = 'CADENAS'
-    end
-    object SERIES1: TMenuItem
-      Caption = 'SERIES'
-    end
-    object VECTORES1: TMenuItem
-      Caption = 'VECTORES'
-    end
-    object MATRICES1: TMenuItem
-      Caption = 'MATRICES'
-    end
-    object EST1: TMenuItem
-      Caption = 'TESTING'
       object moverMayorFinal1: TMenuItem
         Caption = 'moverMayorFinal'
         OnClick = moverMayorFinal1Click
@@ -66,6 +51,18 @@ object Form1: TForm1
         Caption = 'ordenar(n)'
         OnClick = ordenarn1Click
       end
+    end
+    object CADENAS1: TMenuItem
+      Caption = 'CADENAS'
+    end
+    object SERIES1: TMenuItem
+      Caption = 'SERIES'
+    end
+    object VECTORES1: TMenuItem
+      Caption = 'VECTORES'
+    end
+    object MATRICES1: TMenuItem
+      Caption = 'MATRICES'
     end
   end
 end
