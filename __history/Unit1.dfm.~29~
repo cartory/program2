@@ -55,6 +55,14 @@ object Form1: TForm1
         Caption = 'estaOrdenado(n)'
         OnClick = estaOrdenadon1Click
       end
+      object DigitosParesn1: TMenuItem
+        Caption = 'DigitosPares(n)'
+        OnClick = DigitosParesn1Click
+      end
+      object SumaDigitosParesn1: TMenuItem
+        Caption = 'SumaPares(n)'
+        OnClick = SumaDigitosParesn1Click
+      end
     end
     object CADENAS1: TMenuItem
       Caption = 'CADENAS'
@@ -74,9 +82,37 @@ object Form1: TForm1
         Caption = 'palabraMasLarga(x)'
         OnClick = palabraMasLargax1Click
       end
+      object eliminarPrimerLetrax1: TMenuItem
+        Caption = 'eliminarPrimerLetra(x)'
+        OnClick = eliminarPrimerLetrax1Click
+      end
+      object invertirPalabras1: TMenuItem
+        Caption = 'invertirPalabras(x)'
+        OnClick = invertirPalabras1Click
+      end
     end
     object SERIES1: TMenuItem
       Caption = 'SERIES'
+      object fibonaccit1: TMenuItem
+        Caption = 'fibonacci(t)'
+        OnClick = fibonaccit1Click
+      end
+      object serie1t1: TMenuItem
+        Caption = 'serie1(t)'
+        OnClick = serie1t1Click
+      end
+      object sumaSerien1: TMenuItem
+        Caption = 'sumaSerie(n)'
+        OnClick = sumaSerien1Click
+      end
+      object serie2n1: TMenuItem
+        Caption = 'serie2(n)'
+        OnClick = serie2n1Click
+      end
+      object sumaSerie2n1: TMenuItem
+        Caption = 'sumaSerie2(n)'
+        OnClick = sumaSerie2n1Click
+      end
     end
     object VECTORES1: TMenuItem
       Caption = 'VECTORES'

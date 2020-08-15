@@ -40,6 +40,7 @@ __published:	// IDE-managed Components
 	TMenuItem *sumaSerie2n1;
 	TMenuItem *DigitosParesn1;
 	TMenuItem *SumaDigitosParesn1;
+	TMenuItem *parAntesImparn1;
 	void __fastcall factorialn1Click(TObject *Sender);
 	void __fastcall potencian1Click(TObject *Sender);
 	void __fastcall mayorMenorn1Click(TObject *Sender);
@@ -62,6 +63,7 @@ __published:	// IDE-managed Components
 	void __fastcall sumaSerie2n1Click(TObject *Sender);
 	void __fastcall DigitosParesn1Click(TObject *Sender);
 	void __fastcall SumaDigitosParesn1Click(TObject *Sender);
+	void __fastcall parAntesImparn1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

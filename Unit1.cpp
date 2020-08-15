@@ -667,3 +667,27 @@ void __fastcall TForm1::SumaDigitosParesn1Click(TObject *Sender) {
 	ShowMessage(s);
 }
 // ---------------------------------------------------------------------------
+byte parAntesImpar(Cardinal n){
+	byte c;
+	if (n < 10) {
+		c = 0;
+	}else if (n < 100) {
+		if ((n/10)% 2 == 0 && (n%10)%2 == 1){
+			c = 1;
+		}else {
+			c = 0;
+		}
+	}else {
+		c = parAntesImpar(n/10) + parAntesImpar(n%100);
+	}
+	return c;
+}
+
+void __fastcall TForm1::parAntesImparn1Click(TObject *Sender)
+{
+	Cardinal n = StrToInt(InputBox("Par antes Impar", "cad :", ""));
+	byte c = parAntesImpar(n);
+	ShowMessage(c);
+}
+//---------------------------------------------------------------------------
+

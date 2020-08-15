@@ -646,22 +646,24 @@ byte cantidadPares(Cardinal n) {
 void __fastcall TForm1::DigitosParesn1Click(TObject *Sender) {
 	Cardinal n = StrToInt(InputBox("Cantidad Digitos Pares", "cad :", ""));
 	byte c = cantidadPares(n);
-	ShowMessage(n);
+	ShowMessage(c);
 }
+
 // ---------------------------------------------------------------------------
 Word sumaPares(Cardinal n) {
 	Word s;
 	if (n < 10) {
-		s = (n%2 == 0)? n: 0;
-	}else {
-		s = sumaPares(n/10) + sumaPares(n%10);
+		s = (n % 2 == 0) ? n : 0;
+	}
+	else {
+		s = sumaPares(n / 10) + sumaPares(n % 10);
 	}
 	return s;
 }
 
 void __fastcall TForm1::SumaDigitosParesn1Click(TObject *Sender) {
 	Cardinal n = StrToInt(InputBox("Cantidad Digitos Pares", "cad :", ""));
-	byte c = cantidadPares(n);
-	ShowMessage(n);
+	Word s = sumaPares(n);
+	ShowMessage(s);
 }
 // ---------------------------------------------------------------------------

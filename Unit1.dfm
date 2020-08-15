@@ -63,6 +63,10 @@ object Form1: TForm1
         Caption = 'SumaPares(n)'
         OnClick = SumaDigitosParesn1Click
       end
+      object parAntesImparn1: TMenuItem
+        Caption = 'parAntesImpar(n)'
+        OnClick = parAntesImparn1Click
+      end
     end
     object CADENAS1: TMenuItem
       Caption = 'CADENAS'
