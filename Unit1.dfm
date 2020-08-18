@@ -15,8 +15,8 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
-    Left = 528
-    Top = 288
+    Left = 520
+    Top = 272
     object ENTEROS1: TMenuItem
       Caption = 'ENTEROS'
       object factorialn1: TMenuItem
@@ -116,6 +116,10 @@ object Form1: TForm1
       object sumaSerie2n1: TMenuItem
         Caption = 'sumaSerie2(n)'
         OnClick = sumaSerie2n1Click
+      end
+      object sumaSerie3n1: TMenuItem
+        Caption = 'sumaSerie3(n)'
+        OnClick = sumaSerie3n1Click
       end
     end
     object VECTORES1: TMenuItem

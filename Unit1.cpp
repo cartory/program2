@@ -485,19 +485,20 @@ void __fastcall TForm1::estaOrdenadon1Click(TObject *Sender) {
 
 void eliminarPrimerLetra(String &x) {
 	byte n = x.Length();
-	if (n > 0) {
+	if (x != "") {
 		byte p = x.LastDelimiter(" ");
-		String w = x.SubString(p + 1, n - p);
-		x.SetLength(p - 1);
+		String w = x.SubString(p+1, n-p);
+		x.SetLength(p-1);
 		eliminarPrimerLetra(x);
 		if (w != "") {
-			w.Delete(1, 1);
+			w.Delete(1,1);
 		}
 		x = x + " " + w;
 	}
 }
 
 void __fastcall TForm1::eliminarPrimerLetrax1Click(TObject *Sender) {
+
 	String x = InputBox("Eliminar1erLetra", "cad :", "");
 	eliminarPrimerLetra(x);
 	ShowMessage(x);
@@ -508,8 +509,8 @@ void invertirPalabras(String &x) {
 	byte n = x.Length();
 	if (n > 0) {
 		byte p = x.LastDelimiter(" ");
-		String w = x.SubString(p + 1, n - p);
-		x.SetLength(p - 1);
+		String w = x.SubString(p+1, n-p);
+		x.SetLength(p-1);
 		invertirPalabras(x);
 		invertir(w);
 		x = x + " " + w;
@@ -527,9 +528,8 @@ Cardinal fibonacci(Word n) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	}
-	else {
-		t = fibonacci(n - 1) + fibonacci(n - 2);
+	} else {
+		t = fibonacci(n-1) + fibonacci(n-2);
 	}
 	return t;
 }
@@ -545,13 +545,11 @@ Cardinal serie1(Word n) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	}
-	else {
-		t = serie1(n - 1);
-		if (n % 2 == 0) {
+	}else {
+		t = serie1(n-1);
+		if (n%2 == 0) {
 			t *= 2;
-		}
-		else {
+		}else {
 			t++;
 		}
 	}
@@ -559,7 +557,7 @@ Cardinal serie1(Word n) {
 }
 
 void __fastcall TForm1::serie1t1Click(TObject *Sender) {
-	Word n = StrToInt(InputBox("Invertir Palabras", "cad :", ""));
+	Word n = StrToInt(InputBox("Serie 1", "term :", ""));
 	Cardinal t = serie1(n);
 	ShowMessage(t);
 }
@@ -567,18 +565,17 @@ void __fastcall TForm1::serie1t1Click(TObject *Sender) {
 // ---------------------------------------------------------------------------
 Cardinal sumaSerie(Word n) {
 	Cardinal s;
-	if (n < 2) {
+	if (n==1) {
 		s = 0;
-	}
-	else {
-		s = sumaSerie(n - 1);
-		s += (n - 1)*2;
+	}else {
+		s = sumaSerie(n-1);
+		s += 2*(n-1);
 	}
 	return s;
 }
 
 void __fastcall TForm1::sumaSerien1Click(TObject *Sender) {
-	Word n = StrToInt(InputBox("Invertir Palabras", "cad :", ""));
+	Word n = StrToInt(InputBox("Suma Serie", "term :", ""));
 	Cardinal s = sumaSerie(n);
 	ShowMessage(s);
 }
@@ -588,15 +585,15 @@ Cardinal serie2(Word n) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	}
-	else {
-		t = serie2(n - 1) * 2 + 1;
+	}else {
+		t = serie2(n-1) *2 +1;
 	}
 	return t;
+//	return (int)pow(2, n)-1;
 }
 
 void __fastcall TForm1::serie2n1Click(TObject *Sender) {
-	Word n = StrToInt(InputBox("Invertir Palabras", "cad :", ""));
+	Word n = StrToInt(InputBox("SERIE 2", "term :", ""));
 	Cardinal s = serie2(n);
 	ShowMessage(s);
 }
@@ -606,19 +603,18 @@ Cardinal sumaSerie2(Word n, Cardinal &s) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	}
-	else {
-		if (n % 3 == 0) {
-			t = sumaSerie2(n - 1, s) + 2;
+	}else {
+		t = sumaSerie2(n-1, s);
+		if (n%3 == 0) {
+			t += 2;
+		}else if (n%3 == 1) {
+			t++;
+		}else {
+			t *= 2;
 		}
-		else if (n % 3 == 1) {
-			t = sumaSerie2(n - 1, s) + 1;
-		}
-		else {
-			t = sumaSerie2(n - 1, s) * 2;
-		}
-		if (t % 2 == 0) {
-			s += t;
+
+		if (t%2 == 0) {
+            s += t;
 		}
 	}
 	return t;
@@ -688,6 +684,25 @@ void __fastcall TForm1::parAntesImparn1Click(TObject *Sender)
 	Cardinal n = StrToInt(InputBox("Par antes Impar", "cad :", ""));
 	byte c = parAntesImpar(n);
 	ShowMessage(c);
+}
+//---------------------------------------------------------------------------
+float sumaSerie3(Word n) {
+	float s;
+	if (n < 2) {
+		s = n;
+	}else {
+		s = sumaSerie3(n-1);
+		float p = pow(2, n);
+		s += p/(p-1);
+	}
+	return s;
+}
+
+void __fastcall TForm1::sumaSerie3n1Click(TObject *Sender)
+{
+	Word n = StrToInt(InputBox("SumaSerie3", "term :", ""));
+	float s = sumaSerie3(n);
+	ShowMessage(s);
 }
 //---------------------------------------------------------------------------
 
