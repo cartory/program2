@@ -10,10 +10,8 @@ Repositorio con los ejercicios resueltos de programación
 Las siguientes instrucciones serán sobre como clonar el 
 repositorio en sus computadoras y compilarlo al 100%
 ### Requisitos
--  ##### C++ Builder Community >= 10.3 
-    -   https://www.embarcadero.com/products/cbuilder/starter/free-download
--   ##### Tener instalado GIT
-    -   https://git-scm.com/downloads
+-  ##### C++ Builder Community >= 10.3 - [Descargar C++ Builder](https://www.embarcadero.com/products/cbuilder/starter/free-download)
+-   ##### Tener instalado GIT - [Descargar GIT](https://git-scm.com/downloads)
 
 ### Descargar el repositorio
 
