@@ -14,6 +14,23 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object StringGrid1: TStringGrid
+    Left = 104
+    Top = 80
+    Width = 313
+    Height = 65
+    ColCount = 10
+    DefaultColWidth = 60
+    RowCount = 1
+    FixedRows = 0
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+  end
   object MainMenu1: TMainMenu
     Left = 520
     Top = 272
@@ -124,6 +141,22 @@ object Form1: TForm1
     end
     object VECTORES1: TMenuItem
       Caption = 'VECTORES'
+      object cargarn1: TMenuItem
+        Caption = 'cargar(n)'
+        OnClick = cargarn1Click
+      end
+      object sumaPares1: TMenuItem
+        Caption = 'sumaPares'
+        OnClick = sumaPares1Click
+      end
+      object invertir1: TMenuItem
+        Caption = 'invertir'
+        OnClick = invertir1Click
+      end
+      object cargarPalabrasx1: TMenuItem
+        Caption = 'cargarPalabras(x)'
+        OnClick = cargarPalabrasx1Click
+      end
     end
     object MATRICES1: TMenuItem
       Caption = 'MATRICES'

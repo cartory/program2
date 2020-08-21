@@ -705,4 +705,80 @@ void __fastcall TForm1::sumaSerie3n1Click(TObject *Sender)
 	ShowMessage(s);
 }
 //---------------------------------------------------------------------------
+void cargarVector(TStringGrid *v, byte n) {
+	if (n > 0) {
+		v->Cells[n-1][0] = Random(20);
+		cargarVector(v, n-1);
+	}
+}
+
+void __fastcall TForm1::cargarn1Click(TObject *Sender)
+{
+	byte n = StrToInt(InputBox("Longitud", "nro :", ""));
+	StringGrid1->ColCount = n;
+	cargarVector(StringGrid1, n);
+	//cargar vector randomicamente
+}
+//---------------------------------------------------------------------------
+
+Cardinal sumaPares(TStringGrid *v, byte n){
+	Cardinal s;
+	if (n == 1) {
+		s = StrToInt(v->Cells[0][0]);
+		if (s % 2 == 1) {
+			s = 0;
+		}
+	}else {
+		s = sumaPares(v, n-1);
+		byte k = StrToInt(v->Cells[n-1][0]);
+		if (k % 2 == 0) {
+			s += k;
+		}
+	}
+	return s;
+}
+
+void __fastcall TForm1::sumaPares1Click(TObject *Sender)
+{
+//  suponemos que el vector esta cargado
+	Cardinal s = sumaPares(StringGrid1, StringGrid1->ColCount);
+	ShowMessage(s);
+}
+//---------------------------------------------------------------------------
+void invertir(TStringGrid *v, byte a, byte b) {
+	byte n = b -a +1;
+	if (n > 0) {
+		String va = v->Cells[a][0];
+		String vb = v->Cells[b][0];
+		v->Cells[a][0] = vb;
+		v->Cells[b][0] = va;
+		invertir(v, a+1, b-1);
+	}
+}
+
+void __fastcall TForm1::invertir1Click(TObject *Sender)
+{
+	byte n = StringGrid1->ColCount;
+	invertir(StringGrid1, 0, n-1);
+}
+//---------------------------------------------------------------------------
+void cargarVectorCadena(TStringGrid *v, byte n, String x) {
+	byte nx = x.Length();
+	if (n > 0) {
+		int p = x.LastDelimiter(" ");
+		String pal = x.SubString(p + 1, nx - p);
+		x.SetLength(p - 1);
+		v->Cells[n-1][0] = pal;
+		cargarVectorCadena(v, n-1, x);
+	}
+}
+void __fastcall TForm1::cargarPalabrasx1Click(TObject *Sender)
+{
+	String x = InputBox("cadena", "cad :", "");
+	byte n = contarPalabras(x);
+	StringGrid1->ColCount = n;
+	cargarVectorCadena(StringGrid1, n, x);
+	ShowMessage(n);
+}
+//---------------------------------------------------------------------------
 

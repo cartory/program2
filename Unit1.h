@@ -8,6 +8,7 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include <Vcl.Menus.hpp>
+#include <Vcl.Grids.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -42,6 +43,11 @@ __published:	// IDE-managed Components
 	TMenuItem *SumaDigitosParesn1;
 	TMenuItem *parAntesImparn1;
 	TMenuItem *sumaSerie3n1;
+	TStringGrid *StringGrid1;
+	TMenuItem *cargarn1;
+	TMenuItem *sumaPares1;
+	TMenuItem *invertir1;
+	TMenuItem *cargarPalabrasx1;
 	void __fastcall factorialn1Click(TObject *Sender);
 	void __fastcall potencian1Click(TObject *Sender);
 	void __fastcall mayorMenorn1Click(TObject *Sender);
@@ -66,6 +72,10 @@ __published:	// IDE-managed Components
 	void __fastcall SumaDigitosParesn1Click(TObject *Sender);
 	void __fastcall parAntesImparn1Click(TObject *Sender);
 	void __fastcall sumaSerie3n1Click(TObject *Sender);
+	void __fastcall cargarn1Click(TObject *Sender);
+	void __fastcall sumaPares1Click(TObject *Sender);
+	void __fastcall invertir1Click(TObject *Sender);
+	void __fastcall cargarPalabrasx1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
