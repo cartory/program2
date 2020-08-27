@@ -48,6 +48,9 @@ __published:	// IDE-managed Components
 	TMenuItem *sumaPares1;
 	TMenuItem *invertir1;
 	TMenuItem *cargarPalabrasx1;
+	TMenuItem *cargarVector1001;
+	TMenuItem *cadenaNroInv1;
+	TMenuItem *cargarSerie1;
 	void __fastcall factorialn1Click(TObject *Sender);
 	void __fastcall potencian1Click(TObject *Sender);
 	void __fastcall mayorMenorn1Click(TObject *Sender);
@@ -76,6 +79,9 @@ __published:	// IDE-managed Components
 	void __fastcall sumaPares1Click(TObject *Sender);
 	void __fastcall invertir1Click(TObject *Sender);
 	void __fastcall cargarPalabrasx1Click(TObject *Sender);
+	void __fastcall cargarVector1001Click(TObject *Sender);
+	void __fastcall cadenaNroInv1Click(TObject *Sender);
+	void __fastcall cargarSerie1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

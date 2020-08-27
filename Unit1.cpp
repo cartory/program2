@@ -487,11 +487,11 @@ void eliminarPrimerLetra(String &x) {
 	byte n = x.Length();
 	if (x != "") {
 		byte p = x.LastDelimiter(" ");
-		String w = x.SubString(p+1, n-p);
-		x.SetLength(p-1);
+		String w = x.SubString(p + 1, n - p);
+		x.SetLength(p - 1);
 		eliminarPrimerLetra(x);
 		if (w != "") {
-			w.Delete(1,1);
+			w.Delete(1, 1);
 		}
 		x = x + " " + w;
 	}
@@ -509,8 +509,8 @@ void invertirPalabras(String &x) {
 	byte n = x.Length();
 	if (n > 0) {
 		byte p = x.LastDelimiter(" ");
-		String w = x.SubString(p+1, n-p);
-		x.SetLength(p-1);
+		String w = x.SubString(p + 1, n - p);
+		x.SetLength(p - 1);
 		invertirPalabras(x);
 		invertir(w);
 		x = x + " " + w;
@@ -528,8 +528,9 @@ Cardinal fibonacci(Word n) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	} else {
-		t = fibonacci(n-1) + fibonacci(n-2);
+	}
+	else {
+		t = fibonacci(n - 1) + fibonacci(n - 2);
 	}
 	return t;
 }
@@ -545,11 +546,13 @@ Cardinal serie1(Word n) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	}else {
-		t = serie1(n-1);
-		if (n%2 == 0) {
+	}
+	else {
+		t = serie1(n - 1);
+		if (n % 2 == 0) {
 			t *= 2;
-		}else {
+		}
+		else {
 			t++;
 		}
 	}
@@ -565,11 +568,12 @@ void __fastcall TForm1::serie1t1Click(TObject *Sender) {
 // ---------------------------------------------------------------------------
 Cardinal sumaSerie(Word n) {
 	Cardinal s;
-	if (n==1) {
+	if (n == 1) {
 		s = 0;
-	}else {
-		s = sumaSerie(n-1);
-		s += 2*(n-1);
+	}
+	else {
+		s = sumaSerie(n - 1);
+		s += 2*(n - 1);
 	}
 	return s;
 }
@@ -585,11 +589,12 @@ Cardinal serie2(Word n) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	}else {
-		t = serie2(n-1) *2 +1;
+	}
+	else {
+		t = serie2(n - 1) * 2 + 1;
 	}
 	return t;
-//	return (int)pow(2, n)-1;
+	// return (int)pow(2, n)-1;
 }
 
 void __fastcall TForm1::serie2n1Click(TObject *Sender) {
@@ -603,18 +608,21 @@ Cardinal sumaSerie2(Word n, Cardinal &s) {
 	Cardinal t;
 	if (n < 2) {
 		t = n;
-	}else {
-		t = sumaSerie2(n-1, s);
-		if (n%3 == 0) {
+	}
+	else {
+		t = sumaSerie2(n - 1, s);
+		if (n % 3 == 0) {
 			t += 2;
-		}else if (n%3 == 1) {
+		}
+		else if (n % 3 == 1) {
 			t++;
-		}else {
+		}
+		else {
 			t *= 2;
 		}
 
-		if (t%2 == 0) {
-            s += t;
+		if (t % 2 == 0) {
+			s += t;
 		}
 	}
 	return t;
@@ -662,75 +670,80 @@ void __fastcall TForm1::SumaDigitosParesn1Click(TObject *Sender) {
 	Word s = sumaPares(n);
 	ShowMessage(s);
 }
+
 // ---------------------------------------------------------------------------
-byte parAntesImpar(Cardinal n){
+byte parAntesImpar(Cardinal n) {
 	byte c;
 	if (n < 10) {
 		c = 0;
-	}else if (n < 100) {
-		if ((n/10)% 2 == 0 && (n%10)%2 == 1){
+	}
+	else if (n < 100) {
+		if ((n / 10) % 2 == 0 && (n % 10) % 2 == 1) {
 			c = 1;
-		}else {
+		}
+		else {
 			c = 0;
 		}
-	}else {
-		c = parAntesImpar(n/10) + parAntesImpar(n%100);
+	}
+	else {
+		c = parAntesImpar(n / 10) + parAntesImpar(n % 100);
 	}
 	return c;
 }
 
-void __fastcall TForm1::parAntesImparn1Click(TObject *Sender)
-{
+void __fastcall TForm1::parAntesImparn1Click(TObject *Sender) {
 	Cardinal n = StrToInt(InputBox("Par antes Impar", "cad :", ""));
 	byte c = parAntesImpar(n);
 	ShowMessage(c);
 }
-//---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 float sumaSerie3(Word n) {
 	float s;
 	if (n < 2) {
 		s = n;
-	}else {
-		s = sumaSerie3(n-1);
+	}
+	else {
+		s = sumaSerie3(n - 1);
 		float p = pow(2, n);
-		s += p/(p-1);
+		s += p / (p - 1);
 	}
 	return s;
 }
 
-void __fastcall TForm1::sumaSerie3n1Click(TObject *Sender)
-{
+void __fastcall TForm1::sumaSerie3n1Click(TObject *Sender) {
 	Word n = StrToInt(InputBox("SumaSerie3", "term :", ""));
 	float s = sumaSerie3(n);
 	ShowMessage(s);
 }
-//---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 void cargarVector(TStringGrid *v, byte n) {
 	if (n > 0) {
-		v->Cells[n-1][0] = Random(20);
-		cargarVector(v, n-1);
+		v->Cells[n - 1][0] = Random(20);
+		cargarVector(v, n - 1);
 	}
 }
 
-void __fastcall TForm1::cargarn1Click(TObject *Sender)
-{
+void __fastcall TForm1::cargarn1Click(TObject *Sender) {
 	byte n = StrToInt(InputBox("Longitud", "nro :", ""));
 	StringGrid1->ColCount = n;
 	cargarVector(StringGrid1, n);
-	//cargar vector randomicamente
+	// cargar vector randomicamente
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-Cardinal sumaPares(TStringGrid *v, byte n){
+Cardinal sumaPares(TStringGrid *v, byte n) {
 	Cardinal s;
 	if (n == 1) {
 		s = StrToInt(v->Cells[0][0]);
 		if (s % 2 == 1) {
 			s = 0;
 		}
-	}else {
-		s = sumaPares(v, n-1);
-		byte k = StrToInt(v->Cells[n-1][0]);
+	}
+	else {
+		s = sumaPares(v, n - 1);
+		byte k = StrToInt(v->Cells[n - 1][0]);
 		if (k % 2 == 0) {
 			s += k;
 		}
@@ -738,47 +751,111 @@ Cardinal sumaPares(TStringGrid *v, byte n){
 	return s;
 }
 
-void __fastcall TForm1::sumaPares1Click(TObject *Sender)
-{
-//  suponemos que el vector esta cargado
+void __fastcall TForm1::sumaPares1Click(TObject *Sender) {
+	// suponemos que el vector esta cargado
 	Cardinal s = sumaPares(StringGrid1, StringGrid1->ColCount);
 	ShowMessage(s);
 }
-//---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 void invertir(TStringGrid *v, byte a, byte b) {
-	byte n = b -a +1;
+	byte n = b - a + 1;
 	if (n > 0) {
 		String va = v->Cells[a][0];
 		String vb = v->Cells[b][0];
 		v->Cells[a][0] = vb;
 		v->Cells[b][0] = va;
-		invertir(v, a+1, b-1);
+		invertir(v, a + 1, b - 1);
 	}
 }
 
-void __fastcall TForm1::invertir1Click(TObject *Sender)
-{
+void __fastcall TForm1::invertir1Click(TObject *Sender) {
 	byte n = StringGrid1->ColCount;
-	invertir(StringGrid1, 0, n-1);
+	invertir(StringGrid1, 0, n - 1);
 }
-//---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 void cargarVectorCadena(TStringGrid *v, byte n, String x) {
 	byte nx = x.Length();
 	if (n > 0) {
 		int p = x.LastDelimiter(" ");
 		String pal = x.SubString(p + 1, nx - p);
 		x.SetLength(p - 1);
-		v->Cells[n-1][0] = pal;
-		cargarVectorCadena(v, n-1, x);
+		v->Cells[n - 1][0] = pal;
+		cargarVectorCadena(v, n - 1, x);
 	}
 }
-void __fastcall TForm1::cargarPalabrasx1Click(TObject *Sender)
-{
+
+void __fastcall TForm1::cargarPalabrasx1Click(TObject *Sender) {
 	String x = InputBox("cadena", "cad :", "");
 	byte n = contarPalabras(x);
 	StringGrid1->ColCount = n;
 	cargarVectorCadena(StringGrid1, n, x);
 	ShowMessage(n);
+}
+// ---------------------------------------------------------------------------
+
+void cargarVector100(TStringGrid *v, byte n, Cardinal x) {
+	if (n > 0) {
+		v->Cells[n - 1][0] = x % 100;
+		cargarVector100(v, n - 1, x / 100);
+	}
+}
+
+void __fastcall TForm1::cargarVector1001Click(TObject *Sender) {
+	Cardinal nro = StrToInt(InputBox("Nro", "nro :", ""));
+	byte c = cantidadDigitos(nro);
+	c = (c - 1) / 2 + 1;
+	StringGrid1->ColCount = c;
+	cargarVector100(StringGrid1, c, nro);
+}
+// ---------------------------------------------------------------------------
+
+String generarCadenaNroInv(TStringGrid *v, byte a, byte b) {
+	String x;
+	byte n = b -a +1;
+	if (n < 1) {
+		x = "";
+	}else {
+		x = v->Cells[a][0];
+		invertir(x);
+		x =  x + generarCadenaNroInv(v, a+1, b);
+	}
+	return x;
+}
+
+void __fastcall TForm1::cadenaNroInv1Click(TObject *Sender) {
+	byte n = StringGrid1->ColCount;
+	String x = generarCadenaNroInv(StringGrid1, 0, n - 1);
+	ShowMessage(x);
+}
+// ---------------------------------------------------------------------------
+
+Cardinal CargarSerie(TStringGrid *v, byte n) {
+	Cardinal t;
+	if (n<2) {
+		t = n*2;
+	}else {
+		t = CargarSerie(v, n-1);
+		if (n%2 == 0) {
+			t += (n-1)*2;
+		}else {
+			t *= (n-1)*2;
+		}
+	}
+
+	if (n > 0) {
+		v->Cells[n-1][0] = t;
+	}
+	return t;
+}
+
+void __fastcall TForm1::cargarSerie1Click(TObject *Sender)
+{
+	byte n = StrToInt(InputBox("Longitud", "nro: ",""));
+	StringGrid1->ColCount = n;
+	Cardinal t = CargarSerie(StringGrid1, n);
+	ShowMessage(t);
 }
 //---------------------------------------------------------------------------
 

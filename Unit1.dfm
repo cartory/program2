@@ -15,10 +15,10 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object StringGrid1: TStringGrid
-    Left = 104
-    Top = 80
-    Width = 313
-    Height = 65
+    Left = 80
+    Top = 56
+    Width = 409
+    Height = 49
     ColCount = 10
     DefaultColWidth = 60
     RowCount = 1
@@ -156,6 +156,18 @@ object Form1: TForm1
       object cargarPalabrasx1: TMenuItem
         Caption = 'cargarPalabras(x)'
         OnClick = cargarPalabrasx1Click
+      end
+      object cargarVector1001: TMenuItem
+        Caption = 'cargarVector100(n)'
+        OnClick = cargarVector1001Click
+      end
+      object cadenaNroInv1: TMenuItem
+        Caption = 'cadenaNroInv()'
+        OnClick = cadenaNroInv1Click
+      end
+      object cargarSerie1: TMenuItem
+        Caption = 'cargarSerie(n)'
+        OnClick = cargarSerie1Click
       end
     end
     object MATRICES1: TMenuItem
