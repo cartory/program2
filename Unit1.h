@@ -51,6 +51,11 @@ __published:	// IDE-managed Components
 	TMenuItem *cargarVector1001;
 	TMenuItem *cadenaNroInv1;
 	TMenuItem *cargarSerie1;
+	TMenuItem *suman1;
+	TStringGrid *StringGrid2;
+	TMenuItem *serpiente1;
+	TMenuItem *triangular1n1;
+	TMenuItem *triangular2n1;
 	void __fastcall factorialn1Click(TObject *Sender);
 	void __fastcall potencian1Click(TObject *Sender);
 	void __fastcall mayorMenorn1Click(TObject *Sender);
@@ -82,6 +87,10 @@ __published:	// IDE-managed Components
 	void __fastcall cargarVector1001Click(TObject *Sender);
 	void __fastcall cadenaNroInv1Click(TObject *Sender);
 	void __fastcall cargarSerie1Click(TObject *Sender);
+	void __fastcall suman1Click(TObject *Sender);
+	void __fastcall serpiente1Click(TObject *Sender);
+	void __fastcall triangular1n1Click(TObject *Sender);
+	void __fastcall triangular2n1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

@@ -1,0 +1,195 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 324
+  ClientWidth = 566
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object StringGrid1: TStringGrid
+    Left = 80
+    Top = 56
+    Width = 409
+    Height = 49
+    ColCount = 10
+    DefaultColWidth = 60
+    FixedCols = 0
+    RowCount = 1
+    FixedRows = 0
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object StringGrid2: TStringGrid
+    Left = 176
+    Top = 128
+    Width = 177
+    Height = 137
+    DefaultColWidth = 32
+    TabOrder = 1
+  end
+  object MainMenu1: TMainMenu
+    Left = 520
+    Top = 272
+    object ENTEROS1: TMenuItem
+      Caption = 'ENTEROS'
+      object factorialn1: TMenuItem
+        Caption = 'factorial(n)'
+        OnClick = factorialn1Click
+      end
+      object potencian1: TMenuItem
+        Caption = 'potencia(n)'
+        OnClick = potencian1Click
+      end
+      object mayorMenorn1: TMenuItem
+        Caption = 'mayorMenor(n)'
+        OnClick = mayorMenorn1Click
+      end
+      object invertirn1: TMenuItem
+        Caption = 'invertir(&n)'
+        OnClick = invertirn1Click
+      end
+      object moverMayorFinal1: TMenuItem
+        Caption = 'moverMayorFinal'
+        OnClick = moverMayorFinal1Click
+      end
+      object sumaBinariaab1: TMenuItem
+        Caption = 'sumaBinaria(a,b)'
+        OnClick = sumaBinariaab1Click
+      end
+      object toBinn1: TMenuItem
+        Caption = 'DecimalABinario(n)'
+        OnClick = toBinn1Click
+      end
+      object ordenarn1: TMenuItem
+        Caption = 'ordenar(n)'
+        OnClick = ordenarn1Click
+      end
+      object estaOrdenadon1: TMenuItem
+        Caption = 'estaOrdenado(n)'
+        OnClick = estaOrdenadon1Click
+      end
+      object DigitosParesn1: TMenuItem
+        Caption = 'DigitosPares(n)'
+        OnClick = DigitosParesn1Click
+      end
+      object SumaDigitosParesn1: TMenuItem
+        Caption = 'SumaPares(n)'
+        OnClick = SumaDigitosParesn1Click
+      end
+      object parAntesImparn1: TMenuItem
+        Caption = 'parAntesImpar(n)'
+        OnClick = parAntesImparn1Click
+      end
+    end
+    object CADENAS1: TMenuItem
+      Caption = 'CADENAS'
+      object invertirn2: TMenuItem
+        Caption = 'invertir(x)'
+        OnClick = invertirn2Click
+      end
+      object cantidadPalabrasx1: TMenuItem
+        Caption = 'cantidadPalabras(x)'
+        OnClick = cantidadPalabrasx1Click
+      end
+      object eliminarVocalesx1: TMenuItem
+        Caption = 'eliminarVocales(&x)'
+        OnClick = eliminarVocalesx1Click
+      end
+      object palabraMasLargax1: TMenuItem
+        Caption = 'palabraMasLarga(x)'
+        OnClick = palabraMasLargax1Click
+      end
+      object eliminarPrimerLetrax1: TMenuItem
+        Caption = 'eliminarPrimerLetra(x)'
+        OnClick = eliminarPrimerLetrax1Click
+      end
+      object invertirPalabras1: TMenuItem
+        Caption = 'invertirPalabras(x)'
+        OnClick = invertirPalabras1Click
+      end
+    end
+    object SERIES1: TMenuItem
+      Caption = 'SERIES'
+      object fibonaccit1: TMenuItem
+        Caption = 'fibonacci(t)'
+        OnClick = fibonaccit1Click
+      end
+      object serie1t1: TMenuItem
+        Caption = 'serie1(t)'
+        OnClick = serie1t1Click
+      end
+      object sumaSerien1: TMenuItem
+        Caption = 'sumaSerie(n)'
+        OnClick = sumaSerien1Click
+      end
+      object serie2n1: TMenuItem
+        Caption = 'serie2(n)'
+        OnClick = serie2n1Click
+      end
+      object sumaSerie2n1: TMenuItem
+        Caption = 'sumaSerie2(n)'
+        OnClick = sumaSerie2n1Click
+      end
+      object sumaSerie3n1: TMenuItem
+        Caption = 'sumaSerie3(n)'
+        OnClick = sumaSerie3n1Click
+      end
+    end
+    object VECTORES1: TMenuItem
+      Caption = 'VECTORES'
+      object cargarn1: TMenuItem
+        Caption = 'cargar(n)'
+        OnClick = cargarn1Click
+      end
+      object sumaPares1: TMenuItem
+        Caption = 'sumaPares'
+        OnClick = sumaPares1Click
+      end
+      object invertir1: TMenuItem
+        Caption = 'invertir'
+        OnClick = invertir1Click
+      end
+      object cargarPalabrasx1: TMenuItem
+        Caption = 'cargarPalabras(x)'
+        OnClick = cargarPalabrasx1Click
+      end
+      object cargarVector1001: TMenuItem
+        Caption = 'cargarVector100(n)'
+        OnClick = cargarVector1001Click
+      end
+      object cadenaNroInv1: TMenuItem
+        Caption = 'cadenaNroInv()'
+        OnClick = cadenaNroInv1Click
+      end
+      object cargarSerie1: TMenuItem
+        Caption = 'cargarSerie(n)'
+        OnClick = cargarSerie1Click
+      end
+      object suman1: TMenuItem
+        Caption = 'suma(n)'
+        OnClick = suman1Click
+      end
+    end
+    object MATRICES1: TMenuItem
+      Caption = 'MATRICES'
+      object serpiente1: TMenuItem
+        Caption = 'serpiente(m,n)'
+        OnClick = serpiente1Click
+      end
+    end
+  end
+end

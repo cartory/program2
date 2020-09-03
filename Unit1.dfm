@@ -21,6 +21,7 @@ object Form1: TForm1
     Height = 49
     ColCount = 10
     DefaultColWidth = 60
+    FixedCols = 0
     RowCount = 1
     FixedRows = 0
     Font.Charset = DEFAULT_CHARSET
@@ -28,8 +29,17 @@ object Form1: TForm1
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
     ParentFont = False
     TabOrder = 0
+  end
+  object StringGrid2: TStringGrid
+    Left = 176
+    Top = 128
+    Width = 177
+    Height = 137
+    DefaultColWidth = 32
+    TabOrder = 1
   end
   object MainMenu1: TMainMenu
     Left = 520
@@ -169,9 +179,25 @@ object Form1: TForm1
         Caption = 'cargarSerie(n)'
         OnClick = cargarSerie1Click
       end
+      object suman1: TMenuItem
+        Caption = 'suma(n)'
+        OnClick = suman1Click
+      end
     end
     object MATRICES1: TMenuItem
       Caption = 'MATRICES'
+      object serpiente1: TMenuItem
+        Caption = 'serpiente(m,n)'
+        OnClick = serpiente1Click
+      end
+      object triangular1n1: TMenuItem
+        Caption = 'triangular1(n)'
+        OnClick = triangular1n1Click
+      end
+      object triangular2n1: TMenuItem
+        Caption = 'triangular2(n)'
+        OnClick = triangular2n1Click
+      end
     end
   end
 end
