@@ -14,6 +14,33 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object StringGrid1: TStringGrid
+    Left = 80
+    Top = 56
+    Width = 409
+    Height = 49
+    ColCount = 10
+    DefaultColWidth = 60
+    FixedCols = 0
+    RowCount = 1
+    FixedRows = 0
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object StringGrid2: TStringGrid
+    Left = 176
+    Top = 128
+    Width = 177
+    Height = 137
+    DefaultColWidth = 32
+    TabOrder = 1
+  end
   object MainMenu1: TMainMenu
     Left = 520
     Top = 272
@@ -124,9 +151,57 @@ object Form1: TForm1
     end
     object VECTORES1: TMenuItem
       Caption = 'VECTORES'
+      object cargarn1: TMenuItem
+        Caption = 'cargar(n)'
+        OnClick = cargarn1Click
+      end
+      object sumaPares1: TMenuItem
+        Caption = 'sumaPares'
+        OnClick = sumaPares1Click
+      end
+      object invertir1: TMenuItem
+        Caption = 'invertir'
+        OnClick = invertir1Click
+      end
+      object cargarPalabrasx1: TMenuItem
+        Caption = 'cargarPalabras(x)'
+        OnClick = cargarPalabrasx1Click
+      end
+      object cargarVector1001: TMenuItem
+        Caption = 'cargarVector100(n)'
+        OnClick = cargarVector1001Click
+      end
+      object cadenaNroInv1: TMenuItem
+        Caption = 'cadenaNroInv()'
+        OnClick = cadenaNroInv1Click
+      end
+      object cargarSerie1: TMenuItem
+        Caption = 'cargarSerie(n)'
+        OnClick = cargarSerie1Click
+      end
+      object suman1: TMenuItem
+        Caption = 'suma(n)'
+        OnClick = suman1Click
+      end
     end
     object MATRICES1: TMenuItem
       Caption = 'MATRICES'
+      object serpiente1: TMenuItem
+        Caption = 'serpiente(m,n)'
+        OnClick = serpiente1Click
+      end
+      object triangular1n1: TMenuItem
+        Caption = 'triangular1(n)'
+        OnClick = triangular1n1Click
+      end
+      object triangular2n1: TMenuItem
+        Caption = 'triangular2(n)'
+        OnClick = triangular2n1Click
+      end
+      object cuadrado1n1: TMenuItem
+        Caption = 'cuadrado1(n)'
+        OnClick = cuadrado1n1Click
+      end
     end
   end
 end

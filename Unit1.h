@@ -56,6 +56,9 @@ __published:	// IDE-managed Components
 	TMenuItem *serpiente1;
 	TMenuItem *triangular1n1;
 	TMenuItem *triangular2n1;
+	TMenuItem *cuadrado1n1;
+	TMenuItem *re1;
+	TMenuItem *caracoln1;
 	void __fastcall factorialn1Click(TObject *Sender);
 	void __fastcall potencian1Click(TObject *Sender);
 	void __fastcall mayorMenorn1Click(TObject *Sender);
@@ -91,6 +94,9 @@ __published:	// IDE-managed Components
 	void __fastcall serpiente1Click(TObject *Sender);
 	void __fastcall triangular1n1Click(TObject *Sender);
 	void __fastcall triangular2n1Click(TObject *Sender);
+	void __fastcall cuadrado1n1Click(TObject *Sender);
+	void __fastcall re1Click(TObject *Sender);
+	void __fastcall caracoln1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

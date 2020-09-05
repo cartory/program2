@@ -15,12 +15,13 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object StringGrid1: TStringGrid
-    Left = 104
-    Top = 80
-    Width = 313
-    Height = 65
+    Left = 80
+    Top = 56
+    Width = 409
+    Height = 49
     ColCount = 10
     DefaultColWidth = 60
+    FixedCols = 0
     RowCount = 1
     FixedRows = 0
     Font.Charset = DEFAULT_CHARSET
@@ -28,8 +29,17 @@ object Form1: TForm1
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
     ParentFont = False
     TabOrder = 0
+  end
+  object StringGrid2: TStringGrid
+    Left = 176
+    Top = 128
+    Width = 177
+    Height = 137
+    DefaultColWidth = 32
+    TabOrder = 1
   end
   object MainMenu1: TMainMenu
     Left = 520
@@ -157,9 +167,45 @@ object Form1: TForm1
         Caption = 'cargarPalabras(x)'
         OnClick = cargarPalabrasx1Click
       end
+      object cargarVector1001: TMenuItem
+        Caption = 'cargarVector100(n)'
+        OnClick = cargarVector1001Click
+      end
+      object cadenaNroInv1: TMenuItem
+        Caption = 'cadenaNroInv()'
+        OnClick = cadenaNroInv1Click
+      end
+      object cargarSerie1: TMenuItem
+        Caption = 'cargarSerie(n)'
+        OnClick = cargarSerie1Click
+      end
+      object suman1: TMenuItem
+        Caption = 'suma(n)'
+        OnClick = suman1Click
+      end
     end
     object MATRICES1: TMenuItem
       Caption = 'MATRICES'
+      object serpiente1: TMenuItem
+        Caption = 'serpiente(m,n)'
+        OnClick = serpiente1Click
+      end
+      object triangular1n1: TMenuItem
+        Caption = 'triangular1(n)'
+        OnClick = triangular1n1Click
+      end
+      object triangular2n1: TMenuItem
+        Caption = 'triangular2(n)'
+        OnClick = triangular2n1Click
+      end
+      object cuadrado1n1: TMenuItem
+        Caption = 'cuadrado1(n)'
+        OnClick = cuadrado1n1Click
+      end
+      object re1: TMenuItem
+        Caption = 'cargarDiagonal(m, n)'
+        OnClick = re1Click
+      end
     end
   end
 end

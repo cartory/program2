@@ -198,6 +198,18 @@ object Form1: TForm1
         Caption = 'triangular2(n)'
         OnClick = triangular2n1Click
       end
+      object cuadrado1n1: TMenuItem
+        Caption = 'cuadrado1(n)'
+        OnClick = cuadrado1n1Click
+      end
+      object re1: TMenuItem
+        Caption = 'cargarDiagonal(m, n)'
+        OnClick = re1Click
+      end
+      object caracoln1: TMenuItem
+        Caption = 'caracol(n)'
+        OnClick = caracoln1Click
+      end
     end
   end
 end
