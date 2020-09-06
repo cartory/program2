@@ -813,13 +813,14 @@ void __fastcall TForm1::cargarVector1001Click(TObject *Sender) {
 
 String generarCadenaNroInv(TStringGrid *v, byte a, byte b) {
 	String x;
-	byte n = b -a +1;
+	byte n = b - a + 1;
 	if (n < 1) {
 		x = "";
-	}else {
+	}
+	else {
 		x = v->Cells[a][0];
 		invertir(x);
-		x =  x + generarCadenaNroInv(v, a+1, b);
+		x = x + generarCadenaNroInv(v, a + 1, b);
 	}
 	return x;
 }
@@ -833,259 +834,388 @@ void __fastcall TForm1::cadenaNroInv1Click(TObject *Sender) {
 
 Cardinal CargarSerie(TStringGrid *v, byte n) {
 	Cardinal t;
-	if (n<2) {
-		t = n*2;
-	}else {
-		t = CargarSerie(v, n-1);
-		if (n%2 == 0) {
-			t += (n-1)*2;
-		}else {
-			t *= (n-1)*2;
+	if (n < 2) {
+		t = n * 2;
+	}
+	else {
+		t = CargarSerie(v, n - 1);
+		if (n % 2 == 0) {
+			t += (n - 1)*2;
+		}
+		else {
+			t *= (n - 1)*2;
 		}
 	}
 
 	if (n > 0) {
-		v->Cells[n-1][0] = t;
+		v->Cells[n - 1][0] = t;
 	}
 	return t;
 }
 
-void __fastcall TForm1::cargarSerie1Click(TObject *Sender)
-{
-	byte n = StrToInt(InputBox("Longitud", "nro: ",""));
+void __fastcall TForm1::cargarSerie1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("Longitud", "nro: ", ""));
 	StringGrid1->ColCount = n;
 	Cardinal t = CargarSerie(StringGrid1, n);
 	ShowMessage(t);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 Cardinal suma(TStringGrid *v, byte n) {
 	Cardinal s = 0;
 	if (n > 0) {
-		s = StrToInt(v->Cells[n-1][0]);
-		s += suma(v, n-1);
+		s = StrToInt(v->Cells[n - 1][0]);
+		s += suma(v, n - 1);
 	}
 	return s;
 }
 
-void __fastcall TForm1::suman1Click(TObject *Sender)
-{
-	byte n = StrToInt(InputBox("4", "nro: ",""));
+void __fastcall TForm1::suman1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("4", "nro: ", ""));
 	Cardinal s = suma(StringGrid1, n);
 	ShowMessage(s);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void columnaSerpiente(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte &k) {
-	byte n = cb -ca +1;
+void columnaSerpiente(TStringGrid *v, byte fa, byte fb, byte ca, byte cb,
+	byte &k) {
+	byte n = cb - ca + 1;
 	if (n > 0) {
 		if (fa % 2 == 1) {
 			v->Cells[ca][fa] = k++;
-			columnaSerpiente(v, fa, fb, ca+1, cb, k);
-		}else {
+			columnaSerpiente(v, fa, fb, ca + 1, cb, k);
+		}
+		else {
 			v->Cells[cb][fa] = k++;
-			columnaSerpiente(v, fa, fb, ca, cb-1, k);
+			columnaSerpiente(v, fa, fb, ca, cb - 1, k);
 		}
 	}
 }
 
-void filaSerpiente(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte &k) {
-	byte m = fb -fa +1;
+void filaSerpiente(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte &k)
+{
+	byte m = fb - fa + 1;
 	if (m > 0) {
 		columnaSerpiente(v, fa, fb, ca, cb, k);
-		filaSerpiente(v, fa+1, fb, ca, cb, k);
+		filaSerpiente(v, fa + 1, fb, ca, cb, k);
 	}
 }
 
-void __fastcall TForm1::serpiente1Click(TObject *Sender)
-{
-	byte m = StrToInt(InputBox("FILS", "nro: ",""));
-	byte n = StrToInt(InputBox("COLS", "nro: ",""));
+void __fastcall TForm1::serpiente1Click(TObject *Sender) {
+	byte m = StrToInt(InputBox("FILS", "nro: ", ""));
+	byte n = StrToInt(InputBox("COLS", "nro: ", ""));
 	byte k = 1;
 	StringGrid2->RowCount = m;
 	StringGrid2->ColCount = n;
-	filaSerpiente(StringGrid2, 0, m-1, 0, n-1, k);
+	filaSerpiente(StringGrid2, 0, m - 1, 0, n - 1, k);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void colTriangular1(TStringGrid *v, byte fa, byte fb, byte ca, byte cb)
-{
-	byte n = cb -ca +1;
+void colTriangular1(TStringGrid *v, byte fa, byte fb, byte ca, byte cb) {
+	byte n = cb - ca + 1;
 	if (n > 0) {
-		v->Cells[ca][fa] = fa+1;
-		colTriangular1(v, fa, fb, ca+1, cb);
+		v->Cells[ca][fa] = fa + 1;
+		colTriangular1(v, fa, fb, ca + 1, cb);
 	}
 }
 
-void filaTriangular1(TStringGrid *v, byte fa, byte fb, byte ca, byte cb)
-{
-	byte m = fb -fa +1;
+void filaTriangular1(TStringGrid *v, byte fa, byte fb, byte ca, byte cb) {
+	byte m = fb - fa + 1;
 	if (m > 0) {
 		colTriangular1(v, fa, fb, ca, cb);
-		filaTriangular1(v, fa+1, fb, ca+1, cb);
+		filaTriangular1(v, fa + 1, fb, ca + 1, cb);
 	}
 }
 
-void __fastcall TForm1::triangular1n1Click(TObject *Sender)
-{
-	byte n = StrToInt(InputBox("ORDEN", "nro: ",""));
+void __fastcall TForm1::triangular1n1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("ORDEN", "nro: ", ""));
 	StringGrid2->RowCount = n;
 	StringGrid2->ColCount = n;
-	filaTriangular1(StringGrid2, 0, n-1, 0, n-1);
+	filaTriangular1(StringGrid2, 0, n - 1, 0, n - 1);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 void colTriangular2(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte &k)
 {
-	byte n = cb -ca +1;
+	byte n = cb - ca + 1;
 	if (n > 0) {
-		v->Cells[ca][fa] = 2*k++ -1;
-		colTriangular2(v, fa, fb, ca+1, cb, k);
+		v->Cells[ca][fa] = 2 * k++ - 1;
+		colTriangular2(v, fa, fb, ca + 1, cb, k);
 	}
 }
 
-void filaTriangular2(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte &k)
-{
-	byte m = fb -fa +1;
+void filaTriangular2(TStringGrid *v, byte fa, byte fb, byte ca, byte cb,
+	byte &k) {
+	byte m = fb - fa + 1;
 	if (m > 0) {
 		colTriangular2(v, fa, fb, ca, cb, k);
-		filaTriangular2(v, fa+1, fb, ca-1, cb, k);
+		filaTriangular2(v, fa + 1, fb, ca - 1, cb, k);
 	}
 }
 
-void __fastcall TForm1::triangular2n1Click(TObject *Sender)
-{
-	byte n = StrToInt(InputBox("ORDEN", "nro: ",""));
+void __fastcall TForm1::triangular2n1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("ORDEN", "nro: ", ""));
 	StringGrid2->RowCount = n;
 	StringGrid2->ColCount = n;
 	byte k = 1;
-	filaTriangular2(StringGrid2, 0, n-1, n-1, n-1, k);
+	filaTriangular2(StringGrid2, 0, n - 1, n - 1, n - 1, k);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void rellenarFila(TStringGrid *v, byte fa, byte fb, byte ca, byte cb)
-{
-	byte n = cb -ca +1;
+void rellenarFila(TStringGrid *v, byte fa, byte fb, byte ca, byte cb) {
+	byte n = cb - ca + 1;
 	if (n > 0) {
-		v->Cells[ca][fa] = fa +1;
-		v->Cells[ca][fb] = fa +1;
-		rellenarFila(v, fa, fb, ca+1, cb);
+		v->Cells[ca][fa] = fa + 1;
+		v->Cells[ca][fb] = fa + 1;
+		rellenarFila(v, fa, fb, ca + 1, cb);
 	}
 }
 
-void rellenarCol(TStringGrid *v, byte ca, byte cb, byte fa, byte fb)
-{
-	byte m = fb -fa +1;
+void rellenarCol(TStringGrid *v, byte ca, byte cb, byte fa, byte fb) {
+	byte m = fb - fa + 1;
 	if (m > 0) {
-		v->Cells[ca][fa] = ca +1;
-		v->Cells[cb][fa] = ca +1;
-		rellenarCol(v, ca, cb, fa+1, fb);
+		v->Cells[ca][fa] = ca + 1;
+		v->Cells[cb][fa] = ca + 1;
+		rellenarCol(v, ca, cb, fa + 1, fb);
 	}
 }
 
-void cargarCuadrado(TStringGrid *v, byte fa, byte fb, byte ca, byte cb)
-{
-	byte m = fb -fa +1;
-	byte n = cb -ca +1;
-	if (m*n != 0) {
-		if (m*n == 1) {
-			v->Cells[ca][fa] = ca +1;
-		}else {
+void cargarCuadrado(TStringGrid *v, byte fa, byte fb, byte ca, byte cb) {
+	byte m = fb - fa + 1;
+	byte n = cb - ca + 1;
+	if (m * n != 0) {
+		if (m * n == 1) {
+			v->Cells[ca][fa] = ca + 1;
+		}
+		else {
 			rellenarFila(v, fa, fb, ca, cb);
 			rellenarCol(v, ca, cb, fa, fb);
-			cargarCuadrado(v, fa+1, fb-1, ca+1, cb-1);
+			cargarCuadrado(v, fa + 1, fb - 1, ca + 1, cb - 1);
 		}
 	}
 }
 
-void __fastcall TForm1::cuadrado1n1Click(TObject *Sender)
-{
-	byte n = StrToInt(InputBox("ORDEN", "nro: ",""));
+void __fastcall TForm1::cuadrado1n1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("ORDEN", "nro: ", ""));
 	StringGrid2->RowCount = n;
 	StringGrid2->ColCount = n;
-	cargarCuadrado(StringGrid2, 0, n-1, 0, n-1);
+	cargarCuadrado(StringGrid2, 0, n - 1, 0, n - 1);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void cargarFilD1(TStringGrid *v, byte f, byte ca, byte cb, byte k)
-{
-	byte n = cb -ca +1;
+void cargarFilD1(TStringGrid *v, byte f, byte ca, byte cb, byte k) {
+	byte n = cb - ca + 1;
 	if (n > 0) {
 		v->Cells[ca][f] = k;
-		cargarFilD1(v, f, ca+1, cb, k+1);
+		cargarFilD1(v, f, ca + 1, cb, k + 1);
 	}
 }
 
-void cargarD1(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte k)
-{
-	byte m = fb -fa +1;
+void cargarD1(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte k) {
+	byte m = fb - fa + 1;
 	if (m > 0) {
 		cargarFilD1(v, fb, ca, cb, k);
-		cargarD1(v, fa, fb-1, ca, cb, k+1);
+		cargarD1(v, fa, fb - 1, ca, cb, k + 1);
 	}
 }
 
-void __fastcall TForm1::re1Click(TObject *Sender)
-{
-	byte m = StrToInt(InputBox("FILS", "nro: ",""));
-	byte n = StrToInt(InputBox("COLS", "nro: ",""));
+void __fastcall TForm1::re1Click(TObject *Sender) {
+	byte m = StrToInt(InputBox("FILS", "nro: ", ""));
+	byte n = StrToInt(InputBox("COLS", "nro: ", ""));
 	StringGrid2->RowCount = m;
 	StringGrid2->ColCount = n;
-	cargarD1(StringGrid2, 0, m-1, 0, n-1, 1);
+	cargarD1(StringGrid2, 0, m - 1, 0, n - 1, 1);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 void abajo(TStringGrid *v, byte fa, byte fb, byte c, byte &k) {
-	byte m = fb -fa +1;
+	byte m = fb - fa + 1;
 	if (m > 0) {
 		v->Cells[c][fa] = k++;
-		abajo(v, fa+1, fb, c, k);
+		abajo(v, fa + 1, fb, c, k);
 	}
 }
 
 void derecha(TStringGrid *v, byte ca, byte cb, byte f, byte &k) {
-	byte n = cb -ca +1;
+	byte n = cb - ca + 1;
 	if (n > 0) {
 		v->Cells[ca][f] = k++;
-		derecha(v, ca+1, cb, f, k);
+		derecha(v, ca + 1, cb, f, k);
 	}
 }
 
 void arriba(TStringGrid *v, byte fa, byte fb, byte c, byte &k) {
-	byte m = fb -fa +1;
+	byte m = fb - fa + 1;
 	if (m > 0) {
 		v->Cells[c][fb] = k++;
-		arriba(v, fa, fb-1, c, k);
+		arriba(v, fa, fb - 1, c, k);
 	}
 }
 
 void izquierda(TStringGrid *v, byte ca, byte cb, byte f, byte &k) {
-	byte n = cb -ca +1;
+	byte n = cb - ca + 1;
 	if (n > 0) {
 		v->Cells[cb][f] = k++;
-		izquierda(v, ca, cb-1, f, k);
+		izquierda(v, ca, cb - 1, f, k);
 	}
 }
 
-void cargarCaracol(
-	TStringGrid *v,
-	byte fa, byte fb, byte ca, byte cb, byte &k
-)
+void cargarCaracol(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte &k)
 {
-	byte m = fb -fa +1;
-	byte n = cb -ca +1;
-	if (m*n != 0) {
-
+	byte m = fb - fa + 1;
+	byte n = cb - ca + 1;
+	if (m * n != 0) {
+		if (m * n == 1) {
+			v->Cells[ca][fa] = k;
+		}
+		else {
+			abajo(v, fa, fb - 1, ca, k);
+			derecha(v, ca, cb - 1, fb, k);
+			arriba(v, fa + 1, fb, cb, k);
+			izquierda(v, ca + 1, cb, fa, k);
+			cargarCaracol(v, fa + 1, fb - 1, ca + 1, cb - 1, k);
+		}
 	}
 }
 
-void __fastcall TForm1::caracoln1Click(TObject *Sender)
-{
-	byte n = StrToInt(InputBox("ORDEN", "nro: ",""));
+void __fastcall TForm1::caracoln1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("ORDEN", "nro: ", ""));
 	StringGrid2->RowCount = n;
 	StringGrid2->ColCount = n;
 	byte k = 1;
-//	cargarCaracol(StringGrid2, 0, n-1, 0, n-1, k);
+	cargarCaracol(StringGrid2, 0, n - 1, 0, n - 1, k);
+}
+// ---------------------------------------------------------------------------
+void cargarColTri3(TStringGrid *v, byte f, byte ca, byte cb, byte k) {
+	byte n = cb - ca + 1;
+	if (n > 0) {
+		v->Cells[ca][f] = k;
+		if (k == 1) {
+			cargarColTri3(v, f, ca+1, cb, k);
+		}else {
+			cargarColTri3(v, f, ca+1, cb, k-1);
+		}
+	}
+}
+
+void cargarFilaTri3(TStringGrid *v, byte fa, byte fb, byte ca, byte cb, byte k)
+{
+	byte m = fb - fa + 1;
+	if (m > 0) {
+		cargarColTri3(v, fa, ca, cb, k);
+		cargarFilaTri3(v, fa + 1, fb, ca, cb, k - 1);
+	}
+}
+
+void __fastcall TForm1::triangular3n1Click(TObject *Sender) {
+	byte n = StrToInt(InputBox("ORDEN", "nro: ", ""));
+	StringGrid2->RowCount = n;
+	StringGrid2->ColCount = n;
+	cargarFilaTri3(StringGrid2, 0, n - 1, 0, n - 1, n);
+}
+// ---------------------------------------------------------------------------
+
+void filSerpiente2(TStringGrid *v, byte c, byte fa, byte fb) {
+    byte M = v->RowCount;
+	byte m = fb -fa +1;
+	if (m > 0) {
+		if (c % 2 == 0) {
+			v->Cells[c][fa] = (c * M + (fa + 1))* (c * M + (fa + 1));
+			filSerpiente2(v, c, fa+1, fb);
+		}else {
+			v->Cells[c][fb] = ((c+1) * (M) - (fb))*((c+1) * (M) - (fb));
+			filSerpiente2(v, c, fa, fb-1);
+		}
+	}
+}
+
+void colSerpiente2(
+	TStringGrid *v,
+	byte fa, byte fb, byte ca, byte cb
+){
+	byte n = cb -ca +1;
+	if (n > 0) {
+		filSerpiente2(v, ca, fa, fb);
+		colSerpiente2(v, fa, fb, ca+1, cb);
+	}
+}
+
+void __fastcall TForm1::serpiente2mn1Click(TObject *Sender)
+{
+	byte m = StrToInt(InputBox("FILS", "nro: ", ""));
+	byte n = StrToInt(InputBox("COLS", "nro: ", ""));
+	StringGrid2->RowCount = m;
+	StringGrid2->ColCount = n;
+	colSerpiente2(StringGrid2, 0, m - 1, 0, n - 1);
+}
+//---------------------------------------------------------------------------
+
+void cargarFilCad1(TStringGrid *v, byte c, byte fa, byte fb, String &x
+){
+	byte m = fb -fa +1;
+	if (m > 0) {
+		if (x != "") {
+			v->Cellsp[c][fa] = x.SubString(1,1);
+			x.Delete(1, 1);
+		}else {
+			v->Cells[c][fa] = "";
+		}
+		cargarFilCad1(v, c, fa+1, fb, x);
+	}
+}
+
+void cargarColCad1(
+	TStringGrid *v,
+	byte fa, byte fb, byte ca, byte cb, String &x
+) {
+	byte n = cb -ca +1;
+	if (n > 0) {
+		cargarFilCad1(v, ca, fa, fb, x);
+		cargarColCad1(v, fa, fb, ca+1, cb, x);
+	}
+}
+
+void __fastcall TForm1::cargarcadena1mn1Click(TObject *Sender)
+{
+	byte m = StrToInt(InputBox("FILS", "nro: ", ""));
+	byte n = StrToInt(InputBox("COLS", "nro: ", ""));
+	StringGrid2->RowCount = m;
+	StringGrid2->ColCount = n;
+	String x = InputBox("CADENA", "cad:", "");
+	if (x.Length() <= m*n) {
+		cargarColCad1(StringGrid2, 0, m-1, 0, n-1, x);
+	}else {
+		ShowMessage("No carga la cadena");
+	}
+}
+//---------------------------------------------------------------------------
+void cargarCadena2(TStringGrid *v, byte a, byte b, String x)
+{
+	N = v->ColCount;
+	byte n = b -a +1;
+	if (n > 0) {
+		if (x != "") {
+			v->Cells[((N * fa) + ca)/N][((N * fa) + ca)%N] = String(x[1]);
+			cargarCadena2(v, a+1, b, x.Delete(1,1));
+		}else {
+			v->Cells[((N * fa) + ca)/N][((N * fa) + ca)%N] = "";
+			cargarCadena2(v, a+1, b, x);
+		}
+	}
+}
+
+void __fastcall TForm1::cargarCadena2mn1Click(TObject *Sender)
+{
+	byte m = StrToInt(InputBox("FILS", "nro: ", ""));
+	byte n = StrToInt(InputBox("COLS", "nro: ", ""));
+	StringGrid2->RowCount = m;
+	StringGrid2->ColCount = n;
+	String x = InputBox("CADENA", "cad:", "");
+	if (x.Length() <= m*n) {
+		cargarCadena2(StringGrid2, 0, m*n);
+	}else {
+		ShowMessage("No carga la cadena");
+	}
 }
 //---------------------------------------------------------------------------
 

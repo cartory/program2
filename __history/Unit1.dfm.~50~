@@ -190,6 +190,30 @@ object Form1: TForm1
         Caption = 'serpiente(m,n)'
         OnClick = serpiente1Click
       end
+      object triangular1n1: TMenuItem
+        Caption = 'triangular1(n)'
+        OnClick = triangular1n1Click
+      end
+      object triangular2n1: TMenuItem
+        Caption = 'triangular2(n)'
+        OnClick = triangular2n1Click
+      end
+      object cuadrado1n1: TMenuItem
+        Caption = 'cuadrado1(n)'
+        OnClick = cuadrado1n1Click
+      end
+      object re1: TMenuItem
+        Caption = 'cargarDiagonal(m, n)'
+        OnClick = re1Click
+      end
+      object caracoln1: TMenuItem
+        Caption = 'caracol(n)'
+        OnClick = caracoln1Click
+      end
+      object triangular3n1: TMenuItem
+        Caption = 'triangular3(n)'
+        OnClick = triangular3n1Click
+      end
     end
   end
 end
