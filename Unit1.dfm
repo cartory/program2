@@ -227,5 +227,16 @@ object Form1: TForm1
         OnClick = cargarCadena2mn1Click
       end
     end
+    object xtra1: TMenuItem
+      Caption = 'xtra'
+      object triangular11: TMenuItem
+        Caption = 'triangular1(n)'
+        OnClick = triangular11Click
+      end
+      object cargarCadenaVectorMatrizx1: TMenuItem
+        Caption = 'cargarCadenaVectorMatriz(x)'
+        OnClick = cargarCadenaVectorMatrizx1Click
+      end
+    end
   end
 end

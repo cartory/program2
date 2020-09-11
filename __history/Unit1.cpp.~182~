@@ -871,7 +871,7 @@ Cardinal suma(TStringGrid *v, byte n) {
 }
 
 void __fastcall TForm1::suman1Click(TObject *Sender) {
-	byte n = StrToInt(InputBox("4", "nro: ", ""));
+	byte n = StrToInt(InputBox("SUMA", "nro: ", ""));
 	Cardinal s = suma(StringGrid1, n);
 	ShowMessage(s);
 }
@@ -929,6 +929,11 @@ void filaTriangular1(TStringGrid *v, byte fa, byte fb, byte ca, byte cb) {
 
 void __fastcall TForm1::triangular1n1Click(TObject *Sender) {
 	byte n = StrToInt(InputBox("ORDEN", "nro: ", ""));
+//
+	StringGrid2->RowCount = 0;
+	StringGrid2->ColCount = 0;
+//
+	StringGrid2->ColCount = n;
 	StringGrid2->RowCount = n;
 	StringGrid2->ColCount = n;
 	filaTriangular1(StringGrid2, 0, n - 1, 0, n - 1);
@@ -1116,11 +1121,11 @@ void __fastcall TForm1::triangular3n1Click(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void filSerpiente2(TStringGrid *v, byte c, byte fa, byte fb) {
-    byte M = v->RowCount;
+	byte M = v->RowCount;
 	byte m = fb -fa +1;
 	if (m > 0) {
 		if (c % 2 == 0) {
-			v->Cells[c][fa] = (c * M + (fa + 1))* (c * M + (fa + 1));
+			v->Cells[c][fa] = (c * M + (fa + 1)) * (c * M + (fa + 1));
 			filSerpiente2(v, c, fa+1, fb);
 		}else {
 			v->Cells[c][fb] = ((c+1) * (M) - (fb))*((c+1) * (M) - (fb));
@@ -1212,9 +1217,68 @@ void __fastcall TForm1::cargarCadena2mn1Click(TObject *Sender)
 	StringGrid2->ColCount = n;
 	String x = InputBox("CADENA", "cad:", "");
 	if (x.Length() <= m*n) {
-		cargarCadena2(StringGrid2, 0, m*n);
+		cargarCadena2(StringGrid2, 0, m*n -1, x);
 	}else {
 		ShowMessage("No carga la cadena");
+	}
+}
+//---------------------------------------------------------------------------
+
+void triangularFila3(TStringGrid *v, byte c, byte m, byte &k)
+{
+	if (m > 0) {
+		if (c % 2 == 1) {
+			v->Cells[c][m-1] = k++;
+			triangularFila3(v, c, m-1, k);
+		}else {
+			triangularFila3(v, c, m-1, k);
+			v->Cells[c][m-1] = k++;
+		}
+	}
+}
+
+void triangular3(TStringGrid *v, byte m, byte n, byte &k)
+{
+	if (n > 0) {
+		triangular3(v, m+1, n-1, k);
+		triangularFila3(v, n-1, m, k);
+	}
+}
+
+void __fastcall TForm1::triangular11Click(TObject *Sender)
+{
+	byte n = StrToInt(InputBox("ORDEN", "nro: ", ""));
+	byte k = 1;
+	StringGrid2->RowCount = n;
+	StringGrid2->ColCount = n;
+	triangular3(StringGrid2, 1, n, k);
+}
+//---------------------------------------------------------------------------
+void cargarCadenaMatrizVector(
+	TStringGrid *v,
+	byte a, byte b, String x
+){
+	byte n = b -a +1;
+	if (n > 0) {
+		if (x != "") {
+			v->Cells[a%N][a/N] = String(x[1]);
+
+		}
+	}
+}
+void __fastcall TForm1::cargarCadenaVectorMatrizx1Click(TObject *Sender)
+{
+	String x = InputBox("Cadena", "String: ", "");
+	if (x != "") {
+		byte n = (int)sqrt(x.Length() -1 ) +1;
+		StringGrid2->ColCount = n;
+		StringGrid2->RowCount = n;
+		cargarCadenaMatrizVector(
+			StringGrid2,
+			0, m*n -1, x
+		);
+	}else{
+		ShowMessage("Cadena Vacia -> Matriz []");
 	}
 }
 //---------------------------------------------------------------------------
