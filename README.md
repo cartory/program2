@@ -40,7 +40,6 @@ git pull origin master
 ## Autores
 
 * **cartory** - *programación 2* - [cartory](https://github.com/cartory)
-* **KarlaMeneses** - *Learning Something* - [KarlaMeneses](https://github.com/KarlaMeneses)
 
 ## License
 
