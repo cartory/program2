@@ -5,7 +5,7 @@ Repositorio con los ejercicios resueltos de programación
 * **Pedro cartory** - *programación 2* - [cartory](https://www.youtube.com/channel/UCQu3fZWiFFybOE4T9AJXC7A?view_as=subscriber)    
 ## Modelos de exámen
 * **FICCT UAGRM** - *programación 2* - [Modelos de Exámen](https://github.com/ficct/Apuntes/blob/master/Materias/INF210%20-%20Programacion%20II/Programacion_II_Modelo_de_Examen.pdf)
-* **DRIVE** - *programación 2* - [Drive con más modelos](https://drive.google.com/folderview?id=1wXCSpHoY2cy_JaCQFnPVjxZHB4QZNnoT)
+* **DRIVE FICCT** - *programación 2* - [Drive con más modelos de exámen](https://drive.google.com/folderview?id=1wXCSpHoY2cy_JaCQFnPVjxZHB4QZNnoT)
 ## Empezando
 
 Las siguientes instrucciones serán sobre como clonar el 
