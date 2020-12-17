@@ -41,6 +41,7 @@ git pull origin master
 ## Autores
 
 * **cartory** - *programación 2* - [cartory](https://github.com/cartory)
+* **Manuel** - Ing. Saavedra Manuel
 
 ## License
 
